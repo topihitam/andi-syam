@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+<meta charset="utf-8">
+<title>Related Post</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<style>
+body {
+  background-color:white;
+  margin:0;
+  padding:0;
+  color:#212121;
+ font: normal normal 13px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+font-size:15px;
+}
+a {
+  color:#212121;
+  text-decoration:none;
+}
+a:hover {color:#0379C4}
+.related-post {
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+}
+.related-post h4 {
+font-weight: 700;
+font-size:120%;
+margin:10px 0 20px 25px;
+}
+/* Style 3 */
+ul.related-post-style-3{
+    list-style: none;
+    margin: 0;
+    padding-right: 0px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.related-post-style-3 li a:hover{
+color: #0379C4;
+}
+.related-post-style-3 .related-post-item {
+    display: block;
+    float: right;
+    width: 22%;
+    height: auto;
+    padding: 0 10px;
+    border-left: 1px solid #eee;
+    list-style: none;
+    word-wrap: break-word;
+}
+.related-post-style-3 .related-post-item:last-child {border-left:none}
+.related-post-style-3 .related-post-item-thumbnail {
+display:block;
+margin:0 0 10px;
+width:100%;
+height:auto;
+max-width:none;
+background-color:transparent;
+border:none;
+padding:0;
+}
+.related-post-style-3 .related-post-item-title {font-weight:bold}
+@media screen and (max-width:650px){
+.related-post-style-3 .related-post-item
+{width:22%}
+padding-bottom:20px;
+}
+@media screen and (max-width:610px){
+.related-post-style-3 .related-post-item
+{width:21%}
+padding-bottom:20px;
+}
+@media screen and (max-width:420px){
+.related-post-style-3 .related-post-item
+{width:43%}
+padding-bottom:50px;
+}
+@media screen and (max-width:420px){
+.related-post-style-3 .related-post-item
+{width:100%;padding: 0;height:auto;position: relative;    background-color: #f5f5f5;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 0 10px;}
+.related-post-style-3 .related-post-item-thumbnail{margin: 0; width: 30%}
+.related-post-style-3 .related-post-item-tooltip{
+margin-right: 32%;position: absolute;top: 10px;    overflow: hidden;
+    max-height: 60px;}
+}
+</style>
+</head>
+<body>
+<div id="related-post" class="related-post"></div>
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+var labelArray = [getQueryVariable("label")],
+    relatedPostConfig = {
+	homePage: getQueryVariable("url"),	
+        numPosts: 4,
+        summaryLength: 0,
+        widgetStyle: 3,
+        callBack: function() {}
+    };
+</script>
+<script>
+var randomRelatedIndex,showRelatedPost;(function(n,m,k){var d={widgetTitle:"",widgetStyle:1,homePage:"https://www.andisyam.web.id",numPosts:10,summaryLength:370,titleLength:"auto",thumbnailSize:200,noImage:"",containerId:"related-post",newTabLink:false,moreText:"Baca Selengkapnya",callBack:function(){}};for(var f in relatedPostConfig){d[f]=(relatedPostConfig[f]=="undefined")?d[f]:relatedPostConfig[f]}var j=function(a){var b=m.createElement("script");b.type="text/javascript";b.src=a;k.appendChild(b)},o=function(b,a){return Math.floor(Math.random()*(a-b+1))+b},l=function(a){var p=a.length,c,b;if(p===0){return false}while(--p){c=Math.floor(Math.random()*(p+1));b=a[p];a[p]=a[c];a[c]=b}return a},e=(typeof labelArray=="object"&&labelArray.length>0)?"/-/"+l(labelArray)[0]:"",h=function(b){var c=b.feed.openSearch$totalResults.$t-d.numPosts,a=o(1,(c>0?c:1));j(d.homePage.replace(/\/$/,"")+"/summary"+e+"?alt=json-in-script&orderby=updated&start-index="+a+"&max-results="+d.numPosts+"&callback=showRelatedPost")},g=function(z){var s=document.getElementById(d.containerId),x=l(z.feed.entry),A=d.widgetStyle,c=d.widgetTitle+'<ul class="related-post-style-'+A+'">',b=d.newTabLink?' target="_blank"':"",y='<span style="display:block;clear:both;"></span>',v,t,w,r,u;if(!s){return}for(var q=0;q<d.numPosts;q++){if(q==x.length){break}t=x[q].title.$t;w=(d.titleLength!=="auto"&&d.titleLength<t.length)?t.substring(0,d.titleLength)+"&hellip;":t;r=("media$thumbnail"in x[q]&&d.thumbnailSize!==false)?x[q].media$thumbnail.url.replace(/\/s[0-9]+(\-c)?/, "/s"+d.thumbnailSize+"-c"):d.noImage;u=("summary"in x[q]&&d.summaryLength>0)?x[q].summary.$t.replace(/<br ?\/?>/g," ").replace(/<.*?>/g,"").replace(/[<>]/g,"").substring(0,d.summaryLength)+"&hellip;":"";for(var p=0,a=x[q].link.length;p<a;p++){v=(x[q].link[p].rel=="alternate")?x[q].link[p].href:"#"}if(A==2){c+='<li><a href="'+v+'" title="'+t+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"></a><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+'</a><span class="related-post-item-summary"><span class="related-post-item-summary-text">'+u+'</span> <a href="'+v+'" class="related-post-item-more"'+b+">"+d.moreText+"</a></span>"+y+"</li>"}else{if(A==3||A==4){c+='<li class="related-post-item" tabindex="0"><a class="related-post-item-title" href="'+v+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"></a><div class="related-post-item-tooltip"><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+"</a></div>"+y+"</li>"}else{if(A==5){c+='<li class="related-post-item" tabindex="0"><a class="related-post-item-wrapper" href="'+v+'" title="'+t+'"'+b+' target="_blank"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"><span class="related-post-item-tooltip">'+w+"</span></a>"+y+"</li>"}else{if(A==6){c+='<li><a class="related-post-item-title" title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+'</a><div class="related-post-item-tooltip"><img alt="" class="related-post-item-thumbnail" src="'+r+'" width="'+d.thumbnailSize+'" height="'+d.thumbnailSize+'"><span class="related-post-item-summary"><span class="related-post-item-summary-text">'+u+"</span></span>"+y+"</div></li>"}else{c+='<li><a title="'+t+'" href="'+v+'"'+b+" target='_blank'>"+w+"</a></li>"}}}}}s.innerHTML=c+="</ul>"+y;d.callBack()};randomRelatedIndex=h;showRelatedPost=g;j(d.homePage.replace(/\/$/,"")+"/summary"+e+"?alt=json-in-script&orderby=updated&max-results=0&callback=randomRelatedIndex")})(window,document,document.getElementsByTagName("head")[0]);
+</script>
+</body>
+</html>
