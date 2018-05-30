@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<HTML dir='ltr' lang='id-ID'>
+<head>
+<meta charset='utf-8'/>
+<title>Recent Post</title>
+<style type='text/css'>
+@font-face{font-family:Roboto;font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(https://fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
+body{margin:0;font-family:Roboto,Arial,sans-serif;font-weight:500;font-size:17px}
+a:link{color:#1a0dab;}
+#recent-posts{width:auto;padding:0 10px;margin:0 auto}
+#recent-posts ul,#recent-posts li{list-style:none}
+#recent-posts a{text-decoration:none}
+#recent-posts li{border-bottom:1px solid #ddd;padding:6px 0}
+</style>
+</head>
+<body>
+<script>function showlatestposts(t){document.write('<ul id="recent-posts">');for(var e=0;e<10;e++){var r,i=t.feed.entry[e],l=i.title.$t;if(e==t.feed.entry.length)break;for(var s=0;s<i.link.length;s++){if("replies"==i.link[s].rel&&"text/html"==i.link[s].type)i.link[s].title,i.link[s].href;if("alternate"==i.link[s].rel){r=i.link[s].href;break}}document.write('<li class="recent-posts">'),document.write('<a href="'+r+'" target ="_top" title="'+l+'">'+l+"</a>"),document.write("</li>")}document.write("</ul>")}document.write('<script type="text/javascript" src="https://duniaindoxxi.blogspot.com/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestposts&amp;max-results=7"><\/script>');</script>
+</body>
+</HTML>
