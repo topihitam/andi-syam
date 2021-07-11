@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<HTML dir='ltr' lang='id-ID'>
+  <head>
+    <meta charset='utf-8'/>
+    <link href='https://fonts.googleapis.com/css?family=Google Sans' rel='stylesheet'/>
+    <title>Related Post</title>
+    <style type='text/css'>
+      body{margin:0;font-family:Google Sans}
+      body ul{padding:0;margin:0;float:left}
+      body li{border-bottom:1px solid #eee;list-style-type:none!important;padding:10px 0;height:auto;float:left;display:inline;line-height:1em;margin:0;width:100%}
+      span.news-text{font-size:14px;color:#666;line-height:1.2em}
+      body ul li a{text-decoration:none;display:block;color:#333;transition:all .2s ease}
+      body ul li img{float:left;width:80px;height:80px;margin-right:10px;padding:0}
+      @media only screen and (max-width:600px){body ul li img{display:none}span.news-text{display:none}}
+    </style>
+  </head>
+  <body>
+<script style="text/javascript"> 
+var jumlahpostingan= 5; 
+var style= true; 
+</script> 
+<script type='text/javascript'> 
+function showrecentposts(json) {   
+for (var i = 0; i < jumlahpostingan; i++) {    
+var entry = json.feed.entry[i];    
+var judul = entry.title.$t;    
+if (i == json.feed.entry.lenvar link;gth) 
+break;     
+for (var k = 0; k < entry.link.length; k++) {      
+if (entry.link[k].rel == 'alternate') {      
+link= entry.link[k].href;    break; 
+}} 
+judul = judul .link(link);  
+if (style) document.write('<li>');   
+document.write(judul);
+}  
+if (style) document.write('</li>');
+}
+</script>  
+<ul>
+<script src="/feeds/posts/default/-/nama-label-andaorderby=published&alt=json-in-script&callback=showrecentposts&max-results=500">
+</script> 
+</ul>
+  </body>
+</HTML>
