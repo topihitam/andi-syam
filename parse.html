@@ -3,13 +3,12 @@
 <head>
 <meta charset='utf-8'/>
 <title>Tools Gratis Parse Script Adsense HTML PHP Javascript SQL</title>
-<style type='text/css'>body{margin:0}.parse{width:100%;display:flex}#textparse{width:100%;border:1px solid #555}.buttonparse{width:90%;margin-bottom:10px;border:0;background:#32529f;color:#fff;padding:10px 0;border-radius:5px}.buttonclear{width:90%;border:0;background:#333;color:#fff;padding:10px 0;border-radius:5px}</style>
+<style type='text/css'>body{margin:0}.parse{width:100%;display:flex}#textparse{width:100%;border:1px solid #555}.buttonparse{width:90%;border:0;background:#32529f;color:#fff;padding:10px 0;border-radius:5px}</style>
 </head>
 <body>
-<center><div class="parse"><textarea cols="20" id="textparse" placeholder="Pastekan kode yang akan diparse di sini" onfocus="code_check();" rows="10"></textarea><div id="button"><button class="buttonparse" href="#" onclick="code_convert();">Parse</button><button class="buttonclear" href="#" onclick="code_clear();">Clear</button></div></div></center>
+<center><div class="parse"><textarea cols="20" id="textparse" placeholder="Pastekan kode yang akan diparse di sini" onfocus="code_check();" rows="10"></textarea><div id="button"><button class="buttonparse" href="#" onclick="code_convert();">Parse</button></div></div></center>
 <script>
 function code_check(){var focuscheck=document.getElementById('textparse');if(focuscheck.value.indexOf('Pastekan kode yang akan diparse di sini')>0)focuscheck.value=''}
-function code_clear(){var wtextparse=document.getElementById('textparse');wtextparse.value=''}
 function code_convert(){var ctextparse=document.getElementById('textparse');var toConvert=ctextparse.value;var toConvert=toConvert.replace(/&/g,"&amp;");var toConvert=toConvert.replace(/'/g,"&#039;");var toConvert=toConvert.replace(/"/g,"&quot;");var toConvert=toConvert.replace(/</g,"&lt;");var toConvert=toConvert.replace(/>/g,"&gt;");ctextparse.value=toConvert;ctextparse.focus();ctextparse.select()}
 </script>
 </body>
