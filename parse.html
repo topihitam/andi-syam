@@ -7,11 +7,11 @@
 </head>
 <body>
 <center>
-<div class="parse"><textarea cols="20" id="textparse" onfocus="code_check();" rows="10"></textarea><div id="button"><button class="buttonparse" href="#" onclick="code_convert();">Parse</button><button class="buttonclear" href="#" onclick="code_clear();">Clear</button></div></div>
+<div class="parse"><textarea cols="20" id="textparse" placeholder="Pastekan kode yang akan diparse di sini" onfocus="code_check();" rows="10"></textarea><div id="button"><button class="buttonparse" href="#" onclick="code_convert();">Parse</button><button class="buttonclear" href="#" onclick="code_clear();">Clear</button></div></div>
 </center>
 <script>
 function code_check(){
-var focuscheck=document.getElementById('textparse');if(focuscheck.value.indexOf('Pastekan kode di sini yang akan diparse')>0)focuscheck.value='';}
+var focuscheck=document.getElementById('textparse');if(focuscheck.value.indexOf('Pastekan kode yang akan diparse di sini')>0)focuscheck.value='';}
 function code_clear(){
 var wtextparse=document.getElementById('textparse');wtextparse.value='';}
 function code_convert(){
